@@ -1,0 +1,32 @@
+// Pipeline for the Robot Framework suite (Assignment 4).
+// Job steps: install deps, run robot headless, archive reports.
+pipeline {
+    agent any
+    stages (
+        stage('Checkout') {
+            steps { checkout scm }
+        }
+        stage('Setup') {
+            steps {
+                sh 'python -m pip install -r requirements.txt'
+            }
+        }
+        stage('Run Robot Suite') {
+            steps {
+                sh 'python Assignment_4_RobotFramework/assignment4.py'
+            }
+            post {
+                always {
+                    junit(allowEmptyResults: true, testResults:
+                        'Assignment_4_RobotFramework/output.xml')
+                    archiveArtifacts(
+                        artifacts:
+                        'Assignment_4_RobotFramework/log.html, ' +
+                        'Assignment_4_RobotFramework/report.html, ' +
+                        'Assignment_4_RobotFramework/output.xml',
+                        allowMissing: true)
+                }
+            }
+        }
+    )
+}
