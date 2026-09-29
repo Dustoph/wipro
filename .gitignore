@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Test run outputs (reports, logs, artifacts)
+*.log
+request_log.json
+results/
+allure-report/
+allure_results/
+behave_results.json
+*.html
+!README.html
+
+# Selenium / browser artifacts
+screenshots/
+D:\
+\*.png
+
+# Robot Framework outputs
+log.html
+report.html
+output.xml
+
+# OS
+.DS_Store
+Thumbs.db
