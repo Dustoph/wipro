@@ -1,0 +1,9 @@
+{
+  "user_api": {
+    "base_url": "https://jsonplaceholder.typicode.com"
+  },
+  "auth_api": {
+    "base_url": "https://httpbin.org"
+  },
+  "timeout_seconds": 30
+}
